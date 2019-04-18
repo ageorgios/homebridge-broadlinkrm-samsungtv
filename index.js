@@ -15,7 +15,7 @@ function SamsungTVBroadlinkAccessory(log, config) {
   this.name = config["name"]
   this.authorization = config["authorization"] || "111-11-111"
   this.hostname = config["hostname"] || "SamsungTV"
-  this.timeout = config["timeout"] || 1000
+  this.timeout = config["timeout"] || 2000
 
   this.service = new Service.Television(this.name);
   
@@ -37,7 +37,6 @@ SamsungTVBroadlinkAccessory.prototype.getState = function(callback) {
       that.log("Connection Timeout: " + connectiontimeout)
       return callback(null, 0);
     }
-    var reply = JSON.parse(body); // {"POWER":"ON"}
     that.log("SamsungTVBroadlinkAccessory: Get State: ACTIVE");
     callback(null, 1);
   })
@@ -62,8 +61,8 @@ SamsungTVBroadlinkAccessory.prototype.setState = function(active, callback) {
         var connectiontimeout = (error.connect === true)
         that.log("Read Timeout: " + readtimeout)
         that.log("Connection Timeout: " + connectiontimeout)
-        that.log("Sending POWER Command")
         if (active) {
+          that.log("Sending POWER Command")
           request.put(options, function(error, response, body) {
             if (error) {
               that.log("error sending to homebridge")
@@ -79,6 +78,7 @@ SamsungTVBroadlinkAccessory.prototype.setState = function(active, callback) {
           that.log("SamsungTVBroadlinkAccessory: Is already ACTIVE");
         }
         else {
+          that.log("Sending POWER Command")
           request.put(options, function(error, response, body) {
             if (error) {
               that.log("error sending to homebridge")
