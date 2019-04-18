@@ -1,0 +1,30 @@
+{
+  "name": "homebridge-broadlinkrm-samsungtv",
+  "version": "1.0",
+  "description": "Samsung TV with Wifi + Broadlink RM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "author": "Georgios Andritsos <ageorgios@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.12.0",
+    "homebridge": ">=0.2.0"
+  },
+  "dependencies": {
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ageorgios/homebridge-broadlinkrm-samsungtv.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ageorgios/homebridge-broadlinkrm-samsungtv.git/issues"
+  },
+  "homepage": "https://github.com/ageorgios/homebridge-broadlinkrm-samsungtv.git#readme"
+}
