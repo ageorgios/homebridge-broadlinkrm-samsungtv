@@ -12,7 +12,7 @@ module.exports = function(homebridge) {
 function SamsungTVBroadlinkAccessory(log, config) {
   this.log = log;
   this.config = config;
-  this.name = config["name"]
+  this.name = config["name"] || "TV"
   this.authorization = config["authorization"] || "111-11-111"
   this.hostname = config["hostname"] || "SamsungTV"
   this.timeout = config["timeout"] || 2000
@@ -23,6 +23,8 @@ function SamsungTVBroadlinkAccessory(log, config) {
     .getCharacteristic(Characteristic.Active)
     .on('get', this.getState.bind(this))
     .on('set', this.setState.bind(this));
+  this.service
+    .setCharacteristic(Characteristic.ConfiguredName, this.name);
   
   this.log("SamsungTVBroadlinkAccessory Initialized")
 }

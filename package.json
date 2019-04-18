@@ -1,6 +1,6 @@
 {
   "name": "homebridge-broadlinkrm-samsungtv",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Samsung TV with Wifi + Broadlink RM",
   "main": "index.js",
   "scripts": {
